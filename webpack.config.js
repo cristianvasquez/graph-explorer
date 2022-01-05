@@ -22,7 +22,7 @@ module.exports = {
   entry: './src/graph-explorer/index.ts',
   resolve: {
     alias: aliases,
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [
@@ -66,5 +66,5 @@ module.exports = {
   performance: {
     maxEntrypointSize: 2048000,
     maxAssetSize: 2048000,
-  },
+  }
 };

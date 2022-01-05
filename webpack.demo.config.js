@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 const SUPPORT_IE = process.env.SUPPORT_IE;
 const SPARQL_ENDPOINT = process.env.SPARQL_ENDPOINT;
@@ -35,7 +36,7 @@ module.exports = {
   },
   resolve: {
     alias: aliases,
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
     rules: [
@@ -109,9 +110,10 @@ module.exports = {
       chunks: ['commons', 'toolbarCustomization'],
       template: htmlTemplatePath,
     }),
+    new NodePolyfillPlugin()
   ],
   devServer: {
-    contentBase: './dist',
+    static: './dist',
     proxy: {
       '/sparql**': {
         target: SPARQL_ENDPOINT,
@@ -137,5 +139,5 @@ module.exports = {
         secure: false,
       },
     },
-  },
+  }
 };

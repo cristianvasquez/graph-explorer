@@ -6,7 +6,7 @@ export interface Props {
   onStartResize?: (direction: 'vertical' | 'horizontal') => void;
   onResize?: (direction: 'vertical' | 'horizontal') => void;
   /** AccordionItem[] */
-  children?: React.ReactElement[];
+  children?: React.ReactElement<any>[];
   direction?: 'vertical' | 'horizontal';
   animationDuration?: number;
 }
